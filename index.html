@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="overlay.css">
     <link rel="stylesheet" href="config.css">
     <link rel="stylesheet" href="game.css">
+    <script src="config.js" defer></script>
+    <script src="game.js" defer></script>
     <script src="app.js" defer></script>
     <title>TicTacToe</title>
 </head>
@@ -25,7 +27,7 @@
                         <input type="text" name="username" id="playername">
                     </div>
                     <div>
-                        <button type="button" class="btn btn1">Cancel</button>
+                        <button type="button" class="btn btn1" id="cancel">Cancel</button>
                         <button type="submit" class="btn">Confirm</button>
                     </div>
                 </form>
@@ -37,7 +39,7 @@
                             <h2>Player 1</h2>
                             <h3>PLAYER NAME</h3>
                             <p class="player-sym">X</p>
-                            <button class="btn btn1">Edit</button>
+                            <button class="btn btn1" id="edit-player1-btn">Edit</button>
                         </article>
                     </li>
                     <li>
@@ -45,7 +47,7 @@
                             <h2>Player 2</h2>
                             <h3>PLAYER NAME</h3>
                             <p class="player-sym">O</p>
-                            <button class="btn btn1">Edit</button>
+                            <button class="btn btn1" id="edit-player2-btn">Edit</button>
                         </article>
                     </li>
                 </ol>
