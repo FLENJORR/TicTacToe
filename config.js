@@ -1,6 +1,7 @@
 //open overlay
 
-function openPlayer1Edit() {
+function openPlayerEdit(event) {
+    editedPlayer = +event.target.dataset.playerid; //storing the ID of the player
     playerConfigOverlay.style.display = 'block';
     backdrop.style.display = 'block';
 }
@@ -10,6 +11,8 @@ function openPlayer1Edit() {
 function closePlayerConfig() {
     playerConfigOverlay.style.display = 'none';
     backdrop.style.display = 'none';
+
+    formElement.firstElementChild.lastElementChild.value = '' //reset whats entered in the input 
 }
 
 // form submission
@@ -25,4 +28,22 @@ function closePlayerConfig() {
         return;
     } 
 
+    // storing and managing data submitted
+
+    const updatedPlayerData = document.getElementById('player' + editedPlayer + '-data');
+    updatedPlayerData.children[1].textContent = enteredPlayerName; //updating player name (h3 element)
+
+    //storing player name in our JS code
+
+    // if(editedPlayer === 1) {
+    //     players[0].name = enteredPlayerName;
+    // } else {
+    //     players[1].name = enteredPlayerName
+    // }  
+    //OR
+
+    players[editedPlayer - 1].name = enteredPlayerName;
+
+    closePlayerConfig();
 }
+

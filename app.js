@@ -14,12 +14,28 @@ const cancel = document.getElementById('cancel');
 const formElement = document.querySelector('form');
 const outputError = document.getElementById('output-error');
 
+//storing and managing submitted data
+let editedPlayer = 0;
+
+//storing player name in our JS code
+const players = [
+    {
+        name: '',
+        symbol: 'X'
+    },
+
+    {
+        name: '',
+        symbol: 'O'
+    }
+];
+
 
 
 
 // click events
-player1Btn.addEventListener('click', openPlayer1Edit);
-player2Btn.addEventListener('click', openPlayer1Edit);
+player1Btn.addEventListener('click', openPlayerEdit);
+player2Btn.addEventListener('click', openPlayerEdit);
 cancel.addEventListener('click', closePlayerConfig);
 backdrop.addEventListener('click', closePlayerConfig);
 formElement.addEventListener('submit', savePlayerConfig);
