@@ -1,9 +1,9 @@
 // enter player names first
 function startNewGame() {
-    // if(players[0].name === '' || players[1].name === '') {
-    //     alert('Please enter name for both players !')
-    //     return;
-    // }
+    if(players[0].name === '' || players[1].name === '') {
+        alert('Please enter name for both players !')
+        return;
+    }
 
     playerName.textContent = players[activePlayer].name
 
@@ -32,8 +32,11 @@ function selectGameField(event) {
     gameData[selectedRow][selectedCol] = activePlayer + 1;
     
     const winnerId = checkForGameOver();
-    console.log(winnerId);
-    
+    if (winnerId !== 0) {
+        endGame(winnerId);
+    }
+
+    currentRound++;
     switchPlayer();
 };
 
@@ -85,23 +88,26 @@ function checkForGameOver() {
             return gameData[2][0]
         }
 
+        if(currentRound === 9) {
+            // return -1;
+            alert("It's a tie!");
+        }
         return 0;
 
-   
-    // if (gameData[1][0] > 0 && 
-    //     gameData[1][0] === gameData[1][1] && 
-    //     gameData[1][1] === gameData[1][2]) 
-    //     {
-    //     return gameData[1][0];
-    // }
-    // if (gameData[2][0] > 0 && 
-    //     gameData[2][0] === gameData[2][1] && 
-    //     gameData[2][1] === gameData[2][2]) 
-    //     {
-    //     return gameData[2][0];
-    // }
+}
 
+// end game and start new game
 
+function endGame(winnerId) {
+    gameOver.style.display = 'block';
 
+    if (winnerId > 0) {
+    let gameWinner = players[winnerId - 1].name;
+    let winnerName = document.getElementById('winner-name');
+    winnerName.textContent = gameWinner;
+    } else {
+        alert('it\'s a draw !')
+    }
+    // console.log(endGame)
 }
 

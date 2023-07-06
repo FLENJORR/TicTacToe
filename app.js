@@ -8,6 +8,7 @@ const player2Btn = document.getElementById('edit-player2-btn');
 const playerConfigOverlay = document.getElementById('config-overlay');
 const backdrop = document.getElementById('backdrop');
 const cancel = document.getElementById('cancel');
+const gameOver = document.getElementById('game-over')
 
 // form submission -- updtaing player name
 
@@ -17,6 +18,7 @@ const formElement = document.querySelector('form');
 //storing and managing submitted data
 let editedPlayer = 0;
 let activePlayer = 0;
+let currentRound = 1;
 
 //storing player name in our JS code
 const players = [
