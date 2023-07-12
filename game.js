@@ -1,9 +1,30 @@
-// enter player names first
+//reset game status
+function resetGame() {
+    activePlayer = 0;
+    currentRound = 1;
+    gameOver.firstElementChild.innerHTML = 'You Won, <span id="winner-name">WINNER NAME</span>';
+    gameOver.style.display = 'none';
+
+    let gameBoardIndex = 0;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            gameData[i][j] = 0;
+            const gameBoardItem = gameBoard.children[gameBoardIndex];
+            gameBoardItem.textContent = '';
+            gameBoardItem.classList.remove('disabled')
+            gameBoardIndex++;
+        }
+    }
+}
+
+
 function startNewGame() {
     if(players[0].name === '' || players[1].name === '') {
         alert('Please enter name for both players !')
-        return;
+        return; // enter player names first
     }
+
+    resetGame();
 
     playerName.textContent = players[activePlayer].name
 
@@ -97,6 +118,7 @@ function checkForGameOver() {
 }
 
 // end game and start new game
+// showing name of winner...........................
 
 function endGame(winnerId) {
     gameOver.style.display = 'block';
@@ -104,7 +126,7 @@ function endGame(winnerId) {
     if (winnerId > 0) {
     let gameWinner = players[winnerId - 1].name;
     let winnerName = document.getElementById('winner-name');
-    winnerName.textContent = gameWinner;
+    winnerName.textContent = gameWinner + ' !';
     } else {
         alert('it\'s a draw !')
     }

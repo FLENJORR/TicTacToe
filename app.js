@@ -36,6 +36,7 @@ const players = [
 //start new game
 const startGameBtn = document.getElementById('start-game');
 const gameFields = document.querySelectorAll('#game-board li'); //selecting game field
+const gameBoard = document.getElementById('game-board'); //selecting game field
 const playerName = document.getElementById('active-player-name'); //change Player Name
 
 // checking for winner
