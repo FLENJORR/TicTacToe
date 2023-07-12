@@ -19,6 +19,7 @@ const formElement = document.querySelector('form');
 let editedPlayer = 0;
 let activePlayer = 0;
 let currentRound = 1;
+let gameIsOver = false;
 
 //storing player name in our JS code
 const players = [
